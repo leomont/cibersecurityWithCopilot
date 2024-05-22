@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPT-3 Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>GPT-3 Demo</h1>
+<input id="prompt" type="text">
+<button onclick="getCompletion()">Submit</button>
+<p id="result"></p>
+
+<script>
+    function getCompletion() {
+        var prompt = $('#prompt').val();
+        $.post('/api/completion', prompt, function(data) {
+            $('#result').text(data);
+        });
+    }
+</script>
+</body>
+</html>
